@@ -6,24 +6,30 @@ public class game : MonoBehaviour {
 	
 
 	// таймер до появления следующей стенки
-	public float nextTimer;
+	private float nextTimer;
 	// время между появлениями стен
-	public float Wtimer;
+	private float Wtimer;
 
 	// сама стена
 	public GameObject wall;
 
 	// максимальная высота стены
-	public float maxh;
+	private float maxh;
 
 	// минимальная высота стены
-	public float minh;
+	private float minh;
 
 	// размер стены
-	private float size = 2f;
+	private float size;
 
 	// Use this for initialization
 	void Start () {
+		nextTimer = 0;
+		Wtimer = config.WTIME;
+		minh = config.WALL_MIN_H;
+		maxh = config.WALL_MAX_H;
+		size = config.WALL_SIZE;
+
 		// в основном, это надо для продолжения игры после проигрыша.
 		Time.timeScale = 1;
 	}

@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class move : MonoBehaviour {
-	public float speed;
+	private float speed;
+
+	void Start(){
+		speed = config.SPEED;
+	}
 
 	// Update is called once per frame
 	void Update () {

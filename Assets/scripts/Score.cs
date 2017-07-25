@@ -6,20 +6,22 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour {
 
 	// за такое время + Wtime секунд первая стена проходит под ктулху
-	private float startTime = 1.5f;
+	private float startTime;
 
 	// время между спавном стен
-	private float Wtime = 2f;
+	private float Wtime;
 
 	private Text text;
-	void Start()
-	{
+	void Start(){
+		startTime = config.STIME;
+		Wtime = config.WTIME;
+
 		text = this.GetComponent<Text>();
 	}
 
 	// Update is called once per frame
 	void Update () {
-		int score =  Mathf.Max(Mathf.FloorToInt((Time.timeSinceLevelLoad - startTime)/Wtime), 0);
+		int score =  Mathf.Max(Mathf.FloorToInt((Time.timeSinceLevelLoad - startTime)/Wtime) + 1, 0);
 		text.text = score.ToString();
 	}
 }

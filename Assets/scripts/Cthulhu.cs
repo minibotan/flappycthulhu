@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Cthulhu : MonoBehaviour {
 	public GameObject panel;
-	public float force = 5;
+	private float force;
 	Rigidbody2D rb;
 	// Use this for initialization
 	void Start () {
+		force = config.FORCE;
+
 		//тут получаем ригидбоди ктулху для того, чтоб потом его подталкивать вверх
 		rb = this.GetComponent<Rigidbody2D>();
 	}
